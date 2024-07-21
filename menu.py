@@ -52,6 +52,13 @@ menu = {
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
+order_list = [
+    {
+        "Item name": "string",
+        "Price": float,
+        "Quantity": int
+    }
+]
 
 
 # Launch the store and present a greeting to the customer
@@ -118,32 +125,45 @@ while place_order:
                     }
                     i += 1
             # 2. Ask customer to input menu item number
-
+            menu_selection = input("Please enter the menu number of the item you would like to order ")
 
             # 3. Check if the customer typed a number
+            if menu_selection.isdigit():
 
                 # Convert the menu selection to an integer
-
+                menu_selection = type(int)
 
                 # 4. Check if the menu selection is in the menu items
+                if menu_selection in menu_items:
 
                     # Store the item name as a variable
-
+                    item_order = menu_items[menu_selection]
 
                     # Ask the customer for the quantity of the menu item
-
+                    quantity = input(f"What amount of {item_order} would you like to order?  An invalid entry will result in a default quantity of 1. ")
 
                     # Check if the quantity is a number, default to 1 if not
-
+                    if quantity.isdigit():
+                        quantity = type(int)
+                        print(f"You have ordered {quantity} of {item_order}. ")
+                    else:
+                        print(f"This is not a valid entry.  Only 1 {item_order} will be ordered. ")
+                        quantity = 1
 
                     # Add the item name, price, and quantity to the order list
-
+                    order_list = {
+                        "Item name": item_order,
+                        "Price": value,
+                        "Quantity": quantity
+                    }
+                    order_list.append(order_list)
 
                     # Tell the customer that their input isn't valid
-
+                else:
+                    print("This is not a valid entry. ")
 
                 # Tell the customer they didn't select a menu option
-
+ 
         else:
             # Tell the customer they didn't select a menu option
             print(f"{menu_category} was not a menu option.")
