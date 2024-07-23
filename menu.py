@@ -142,6 +142,8 @@ while place_order:
                     selected_price = item_order["Price"]
                     #selected_price = float(selected_price)
                     #selected_price = round(selected_price, 2)
+                    #print(selected_price)
+                    #print("This is the selected price. ")
 
                     # Ask the customer for the quantity of the menu item
                     quantity = input(f"What amount of {selected_name} would you like to order?  An invalid entry will result in a default quantity of 1. ")
@@ -224,8 +226,9 @@ for customer_order in order:
 
     # 8. Calculate the number of spaces for formatted printing
     num_item_name_spaces = 26 - len(item_name)
-    num_price_spaces = 24 - len(str(f"{price:.2f}"))
-    num_quantity_spaces = 24 - len(str(quantity))
+    num_price_spaces = 5 - len(str(price))
+    #len(str(f"{price:.2f}"))
+    num_quantity_spaces = len(str(quantity))
                     
     # 9. Create space strings
     item_name_spaces = " " * num_item_name_spaces
@@ -233,7 +236,9 @@ for customer_order in order:
     quantity_spaces = " " * num_quantity_spaces
 
     # 10. Print the item name, price, and quantity
-    print(f"{item_name}{item_name_spaces}| ${price}{num_price_spaces} | {quantity}{num_quantity_spaces}")
+    print(f"{item_name}{item_name_spaces}| ${price:.2f}{price_spaces} | {quantity}")
+    #{num_price_spaces}
+    #{num_quantity_spaces}
     
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
