@@ -146,12 +146,12 @@ while place_order:
                     #print("This is the selected price. ")
 
                     # Ask the customer for the quantity of the menu item
-                    quantity = input(f"What amount of {selected_name} would you like to order?  An invalid entry will result in a default quantity of 1. ")
+                    quantity = input(f"What amount of the {selected_name} menu item would you like to order?  An invalid entry will result in a default quantity of 1. ")
 
                     # Check if the quantity is a number, default to 1 if not
                     if quantity.isdigit():
                         quantity = int(quantity)
-                        print(f"You have ordered {quantity} of {selected_name}. ")
+                        print(f"You have ordered {quantity} of the {selected_name} menu item. ")
 
                     # Add the item name, price, and quantity to the order list
                         current_order = {
@@ -163,7 +163,7 @@ while place_order:
 
                     # Tell the customer that their input isn't valid
                     else:
-                        print(f"This is not a valid entry.  Only 1 {selected_name} will be ordered. ")
+                        print(f"This is not a valid entry.  Only 1 of the {selected_name} menu item will be ordered. ")
                         quantity = 1
                         current_order = {
                             "Item name": selected_name,
@@ -244,4 +244,4 @@ for customer_order in order:
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
 total_price = sum(customer_order["Price"] * customer_order["Quantity"] for customer_order in order)
-print(total_price)
+print(f"Your total is ${total_price}.  Have a nice day! ")
